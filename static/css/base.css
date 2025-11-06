@@ -1,42 +1,111 @@
 /* static/css/base.css */
 /* static/css/base.css */
 
-
 body {
-  background-color: lightblue;
-  font-family: verdana;
+  background-color: #F7F7F2;
+  font-family: 'Raleway', 'Segoe UI', sans-serif;
   font-size: 18px;
-}
-
-header h1 a {
-  color: red;
-}
-
-.nav-left {
-  margin-right: auto;
-}
-
-.nav-right {
+  color: #333;
+  margin: 0;
+  padding: 0;
+  line-height: 1.3;
+  height: 100vh;
+  overflow: hidden;
   display: flex;
-  padding-top: 2rem;
+  flex-direction: column;
+}
+
+header {
+  background-color: #D3C0AF;
+  padding: 0.6rem 1.2rem;
+  border-bottom: 1px solid #c2b2a2;
+}
+
+.nav-left h1 {
+  margin: 0;
+}
+
+.nav-left h1 a {
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  font-size: 2.6rem;
+  color: #2C2C2C;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-left h1 a:hover {
+  color: #A26769;
+}
+
+main {
+  flex: 1;
+  padding: 1.5rem 2rem;
+  overflow-y: auto;
+}
+
+.greeting {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #A26769;
+  margin: 2rem 0.5rem 1.3rem;
+}
+
+.action-bar {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.action-bar a,
+.action-bar button {
+  all: unset;
+  display: inline-block;
+  background-color: #A26769;
+  color: #FFFFFF;
+  padding: 0.6rem 1.4rem;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 1rem;
+  min-width: 180px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.action-bar a:hover,
+.action-bar button:hover {
+  background-color: #814C4E;
+  transform: translateY(-1px);
 }
 
 .post-entry {
   margin-bottom: 2rem;
+  padding: 1.5rem;
+  background-color: #FFFFFF;
+  border-radius: 15px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e0dcd6;
 }
 
 .post-entry h2 {
   margin: 0.5rem 0;
+  font-size: 1.6rem;
+  color: #444;
+  font-weight: 700;
 }
 
 .post-entry h2 a,
 .post-entry h2 a:visited {
-  color: blue;
+  color: #444;
   text-decoration: none;
 }
 
-
 .post-entry p {
-  margin: 0;
+  margin: 0.5rem 0 0;
+  font-size: 1rem;
   font-weight: 400;
+  color: #555;
 }

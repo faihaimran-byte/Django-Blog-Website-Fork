@@ -128,3 +128,6 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # Login redirect
 LOGIN_REDIRECT_URL = "home"
 LOGOUT_REDIRECT_URL = "home"
+
+#added to avoid 403 forbidden error when opening admin in browser
+CSRF_TRUSTED_ORIGINS = ['https://localhost:8000']

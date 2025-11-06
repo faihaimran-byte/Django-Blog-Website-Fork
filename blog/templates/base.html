@@ -1,37 +1,41 @@
 <!-- templates/base.html -->
  {% load static %}
- <html>
-
- <head>
-    <title>My (new) blog</title>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My (new) Blog</title>
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
- </head>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Raleway:wght@400;600&display=swap" rel="stylesheet">
+</head>
 
- <body>
-   <div>
-     <header>
-	<div class="nav-left">
- 		<h1><a href="{% url 'home' %}"> My blog</a></h1>
-	</div>
-	<div class="nav-right">
- 		<a href="{% url 'post_new' %}">add new blog post</a>
-	</div>
-     </header>
+<body>
+    <header>
+        <div class="nav-left">
+            <h1><a href="{% url 'home' %}">My Blog</a></h1>
+        </div>
+    </header>
 
-     {% if user.is_authenticated %}
-     <p>Hi {{ user.username }}!</p>
-     <form action="{% url 'logout' %}" method="post">
-	     {% csrf_token %}
-	     <button type="submit">Log Out</button>
-     </form>     
-     {% else %}
-     <p>You are not logged in.</p>
-     <a href="{% url 'login' %}"Log in</a>
-     {% endif %}
+    <main>
+        {% if user.is_authenticated %}
+            <p class="greeting">Hi {{ user.username }}!</p>
+        {% else %}
+            <p class="greeting">You are not logged in.</p>
+            <a href="{% url 'login' %}">Log in</a>
+        {% endif %}
 
-    {% block content %}
-    {% endblock content %}
- </div>
- </body>
+        {% block content %}
+        {% endblock content %}
+    </main>
 
- </html>
+    {% if user.is_authenticated %}
+        <div class="action-bar">
+            <a href="{% url 'post_new' %}">Add New Blog Post</a>
+            <form action="{% url 'logout' %}" method="post">
+                {% csrf_token %}
+                <button type="submit">Log Out</button>
+            </form>
+        </div>
+    {% endif %}
+</body>
+</html>
